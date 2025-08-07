@@ -1,0 +1,30 @@
+{
+  "name": "kronoside",
+  "version": "1.0.0",
+  "description": "I am going to make a collaborative IDE soon, to test my prevelant skills and mainly, as a nice self-project for the upcoming CDC internship season",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/index.js",
+    "dev": "nodemon backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tars-06/KronosIDE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tars-06/KronosIDE/issues"
+  },
+  "homepage": "https://github.com/tars-06/KronosIDE#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

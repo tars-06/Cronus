@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Cinzel+Decorative&family=Cormorant+Garamond&family=DM+Serif+Display&family=Sorts+Mill+Goudy&display=swap');
+
+.playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.cinzel {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.dm-serif {
+  font-family: 'DM Serif Display', serif;
+}
+
+.goudy {
+  font-family: 'Sorts Mill Goudy', serif;
+}
+
+
+@keyframes gradientFade {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.fraktur-bold {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+}
+
+
+.animated-gradient {
+  background: linear-gradient(45deg, yellow, black, yellow);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFade 10s ease-in-out infinite;
+}

@@ -1,15 +1,19 @@
 import React from 'react'
 
-function EditorPage() {
+const EditorPage=({roomId, copyRoomId})=> {
   return (
-    <div className="container-fluid vh-100">
-      <div className="row h-100">
-        <div className="dol-md-2 bg-dark text-light d-flex flex-column h-100" style={{boxShadow:"2px 0px 4px rgba(0,0,0,0.1)"}}>
-          Member
+    <div className="editor-container">
+      <div className="sidebar">
+        <div className="room-info">
+          <h2>Code Room: {roomId}</h2>
+          <button onClick={copyRoomId}>Copy Id</button>
         </div>
-        <div className="col-md-10 text-light d-flex flex-column h-100">
-          Editor
-        </div>
+        <h3>Users in Room: </h3>
+        <ul>
+          <li>Prashant</li>
+          <li>Xyz</li>
+        </ul>
+        <p className='typing-indicator'>user typing....</p>
       </div>
     </div>
   )

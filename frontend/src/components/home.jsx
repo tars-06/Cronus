@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import '../fonts.css'
 
-const Home = () => {
+const Home = ({roomId, setRoomId, userName, setUserName, joinRoom}) => {
     
     return (
         <div className='container-fluid'>
@@ -23,12 +23,12 @@ const Home = () => {
                             </div>
                             <h4 className='text-light mt-4 mb-4 goudy'>Enter the Room Id</h4>
                             <div className="form-group w-100 mb-4">
-                                <input type="text" className="form-control mb-2" placeholder="Room Id" />
+                                <input type="text" className="form-control mb-2" placeholder="Room Id" value={roomId} onChange={e=>setRoomId(e.target.value)} />
                             </div>
                             <div className="form-group w-100 mb-4">
-                                <input type="text" className="form-control mb-2" placeholder="Username" />
+                                <input type="text" className="form-control mb-2" placeholder="Username" value={userName} onChange={e=>setUserName(e.target.value)} />
                             </div>
-                            <button className='btn btn-success btn-lg btn-block cormorant'>JOIN</button>
+                            <button className='btn btn-success btn-lg btn-block cormorant' onClick={joinRoom}>JOIN</button>
                             <p className='mt-3 text-light'>Don't have a room id? <span className='text-success p-1' style={{cursor: "pointer"}}>New Room</span> </p>
                         </div>
                     </div>

@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom'
 import io from 'socket.io-client'
 import EditorPage from './components/editorPage'
 
-const socket = io("http://localhost:5000")
+const socket = io("https://cronus-00sa.onrender.com/")
 
 
 

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import '../fonts.css'
-
+import "./home.css"
 const Home = ({roomId, setRoomId, userName, setUserName, joinRoom}) => {
     
     return (

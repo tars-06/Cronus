@@ -1,6 +1,9 @@
 import express from 'express'
 import http from 'http'
 import {Server} from 'socket.io'
+import path from 'path'
+
+
 const app = express()
 
 
@@ -39,6 +42,41 @@ io.on("connection",(socket)=>{
 
         io.to(roomId).emit("userJoined", Array.from(rooms.get(currentRoom)));
         console.log("User joined room", roomId)
+    });
+
+    socket.on("codeChange", ({roomId, code})=>{
+        socket.to(roomId).emit("codeUpdate", code)
+    })
+
+    socket.on("leaveRoom", ()=>{
+        if(currentRoom && currentUser){
+            rooms.get(currentRoom).delete(currentUser)
+            io.to(currentRoom).emit("userJoined", Array.from(rooms.get(currentRoom)))
+
+            socket.leave(currentRoom)
+
+            currentRoom=null
+            currentUser=null
+        }
+    })
+
+    socket.on("typing", ({roomId, userName})=>{
+        socket.to(roomId).emit("userTyping", userName);
+    })
+
+    socket.on("languageChange", ({roomId, language})=>{
+        io.to(roomId).emit("languageUpdate", language)
+    })
+
+    socket.on("disconnect", ()=>{
+        if(currentUser && currentRoom){
+        if (rooms.has(currentRoom)) {
+            rooms.get(currentRoom).delete(currentUser)
+        }
+            io.to(currentRoom).emit("userJoined", Array.from(rooms.get(currentRoom)))
+
+        }
+        console.log("User disconnected");
     })
 
 });
@@ -46,6 +84,14 @@ io.on("connection",(socket)=>{
 
 
 const PORT = process.env.PORT || 5000
+
+const __dirname = path.resolve()
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")))
+
+app.get('/', (req,res)=>{
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
+})
 
 server.listen(PORT, ()=>{
     console.log(`server is working on ${PORT}`)

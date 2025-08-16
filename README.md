@@ -67,7 +67,10 @@ cronus/
 ---
 
 ## ⚙️ QUICK START (LOCAL)
-
+- Clone the repo
+```
+git clone https://github.com/tars-06/Cronus.git
+```
 - From the project root:
 ```
 cd cronus
@@ -80,6 +83,10 @@ npm run build
 ```
 npm run dev
 ```
+- Head to https://localhost:5000
+
+<sub>Note: It's already deployed on https://cronus-se1h.onrender.com, you can directly head to this link.</sub>
+
 ## 🎮 Usage
 
 1. Start the backend and frontend servers.

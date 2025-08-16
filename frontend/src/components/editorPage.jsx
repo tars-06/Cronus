@@ -15,7 +15,7 @@ const EditorPage=({roomId, copyRoomId, language,setLanguage,code,setCode,handleC
         <ul>
           {
             users.map((user,index)=>
-              <li key={index}>{user.slice(0,8)}...</li>
+              <li key={index}>{user.slice(0,8)}</li>
             )
           }
         </ul>

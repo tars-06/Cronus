@@ -1,7 +1,7 @@
 {
   "name": "CronusIDE",
   "version": "1.0.0",
-  "description": "I am going to make a collaborative IDE soon, to test my prevelant skills and mainly, as a nice self-project for the upcoming CDC internship season",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {

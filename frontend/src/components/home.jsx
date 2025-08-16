@@ -15,7 +15,7 @@ const Home = ({roomId, setRoomId, userName, setUserName, joinRoom}) => {
                             <div className="d-flex align-items-center justify-content-center">
                                 <img
                                     className="img-fluid mb-2 me-5 rounded"
-                                    src="/assets/cronus1.png"
+                                    src="/assets/cronus1.svg"
                                     alt="Cronus"
                                     style={{width: "150px", height:"200px", objectFit: "cover" }}
                                 />

@@ -26,7 +26,12 @@ It allows multiple users to join a room, edit code together, see what others typ
   
 - Code Synchronization  
   Code changes are broadcast in real-time to every participant in the room.
-  
+
+- Live Code Compilation
+  - Users can compile and run code directly inside the editor.
+  - Output is shared with everyone in the same room.
+  - Powered by Piston API (https://github.com/engineer-man/piston).
+
 - Clipboard Support  
   Users can copy the room ID easily for quick sharing.
   
@@ -36,11 +41,11 @@ It allows multiple users to join a room, edit code together, see what others typ
 ---
 
 ## 🛠️ Tech Stack
-
-- Frontend: React + Vite + Monaco Editor  
-- Backend: Express + Socket.IO  
-- Styling: CSS, Bootstrap classes  
-- Communication: WebSocket via Socket.IO  
+- Frontend: React + Vite + Monaco Editor
+- Backend: Express + Socket.IO + Axios (for compilation requests)
+- Styling: CSS, Bootstrap classes
+- Communication: WebSocket via Socket.IO
+- Compilation Engine: Piston API (https://emkc.org/)
 
 ---
 

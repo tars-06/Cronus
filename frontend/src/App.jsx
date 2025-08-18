@@ -22,6 +22,10 @@ const App =()=> {
   const [copySuccess, setCopySuccess] = useState("")
   const [users, setUsers] = useState([])
   const [typing, setTyping]= useState()
+  const [output, setOuput] = useState("")
+  const [version, setVersion] = useState("*")
+
+
   useEffect(()=>{
   socket.on("userJoined", (users)=>{
     setUsers(users)
@@ -40,11 +44,16 @@ const App =()=> {
       setLanguage(newLanguage)
     })
 
+    socket.on("codeResponse", (response)=>{
+      setOuput(response.run.output)
+    })
+
     return ()=>{
       socket.off("userJoined")
-      socket.off("coeUpdate")
+      socket.off("codeUpdate")
       socket.off("userTyping")
       socket.off("languageUpdate")
+      socket.off("codeResponse")
     }
   },[])
 
@@ -76,6 +85,10 @@ const App =()=> {
     const newLanguage = e.target.value
     setLanguage(newLanguage)
     socket.emit("languageChange", {roomId, language: newLanguage})
+  }
+
+  const runCode = ()=>{
+    socket.emit("compileCode", {code, roomId, language, version})
   }
 
   const leaveRoom = ()=>{
@@ -132,6 +145,8 @@ const App =()=> {
           typing={typing}
           handleLanguageChange={handleLanguageChange}
           leaveRoom={leaveRoom}
+          runCode={runCode}
+          output={output}
           />  
 }
 

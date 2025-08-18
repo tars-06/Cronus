@@ -2,7 +2,7 @@ import React from 'react'
 import "./editor.css"
 import Editor from '@monaco-editor/react'
 
-const EditorPage=({roomId, copyRoomId, language,setLanguage,code,setCode,handleCodeChange, copySuccess, users, typing, handleLanguageChange, leaveRoom})=> {
+const EditorPage=({roomId, copyRoomId, language,setLanguage,code,setCode,handleCodeChange, copySuccess, users, typing, handleLanguageChange, leaveRoom, runCode, output})=> {
   return (
     <div className="editor-container">
       <div className="sidebar">
@@ -30,7 +30,7 @@ const EditorPage=({roomId, copyRoomId, language,setLanguage,code,setCode,handleC
       </div>
       <div className='editor-wrapper'>
         <Editor
-          height="100%"
+          height="70%"
           language={language}
           value={code}
           onChange={handleCodeChange}
@@ -40,6 +40,14 @@ const EditorPage=({roomId, copyRoomId, language,setLanguage,code,setCode,handleC
             fontSize: 14,
           }}
         />
+        <div className='console-area'>
+        <button className='exec-btn' onClick={runCode}>Execute</button>
+        <textarea 
+        className='output-console' 
+        value={output} 
+        readOnly 
+        placeholder='//Output' />
+        </div>
       </div>
     </div>
   )
